@@ -8,7 +8,7 @@ function ReusableForm(props) {
   return (
 
     <React.Fragment>
-      <Form onSubmit = { props.fromSubmissionHandler }>
+      <form onSubmit = { props.fromSubmissionHandler }>
        
           <InputGroup className="mb-3">
           <InputGroup.Prepend>
@@ -47,8 +47,7 @@ function ReusableForm(props) {
           </InputGroup>
 
           <Button type='submit' variant="info">{props.buttonText}</Button>
-
-      </Form>
+      </form>
     </React.Fragment>
   )
 }

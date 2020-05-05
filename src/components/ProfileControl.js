@@ -28,7 +28,6 @@ class ProfileControl extends React.Component {
 
   handleAddingNewProfileToList = (newProfile) => {
     const { dispatch } = this.props;
-    const { id, name, bio, projects, skills } = newProfile;
     const action = a.addProfile(newProfile);
     dispatch(action);
     const action2 = a.toggleForm();
@@ -86,7 +85,7 @@ class ProfileControl extends React.Component {
     } else {
       currentlyVisibleState = <ProfileList 
         profileList={this.props.masterProfileList} 
-        onProfileSelection={this.handleChangingSelectedProfile}PraddProfile />
+        onProfileSelection={this.handleChangingSelectedProfile} />
       buttonText = "Add a Profile";
     }
 

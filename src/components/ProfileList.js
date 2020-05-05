@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
-import Card from 'react-bootstrap/Card';
-// import { useSelector } from 'react-redux';
+import { Card } from 'react-bootstrap';
 
 function ProfileList(props) {
   return (

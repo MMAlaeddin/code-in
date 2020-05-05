@@ -1,4 +1,4 @@
-// import * as c from './../actions/actionTypes';
+import * as c from './../actions/ActionTypes';
 
 export default (state = {}, action) => {
   const { name, bio, projects, skills, id } = action;

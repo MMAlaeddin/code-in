@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, FormControl } from 'react-bootstrap';
 
 
 function ReusableForm(props) {
   return (
-    
+
     <React.Fragment>
       <Form onSubmit = { props.fromSubmissionHandler }>
        

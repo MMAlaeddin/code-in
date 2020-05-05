@@ -1,3 +1,19 @@
+# Code-In 
+
+#### By: Mariam, Kristina, James | May 5, 2020
+
+### Description
+A social media platform for developers! 
+
+
+## Component Tree 
+<img width="763" alt="Screen Shot 2020-05-05 at 9 41 39 AM" src="https://user-images.githubusercontent.com/58479140/81091872-ab743a80-8eb4-11ea-8156-287ee1b3f6ea.png">
+
+## Specs 
+
+...
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

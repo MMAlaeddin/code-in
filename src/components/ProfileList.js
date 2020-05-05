@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
+import Card from 'react-bootstrap/Card';
 // import { useSelector } from 'react-redux';
 
 function ProfileList(props) {
   return (
     <React.Fragment>
       <Card>
-        <hr />
         {Object.values(props.profileList).map((profile) => {
           return <Profile
           whenProfileClicked = {props.onProfileSelection}

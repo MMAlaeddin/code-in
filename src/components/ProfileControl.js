@@ -2,10 +2,10 @@ import React from "react";
 import CreateNewProfileForm from './CreateNewProfileForm';
 import ProfileList from './ProfileList';
 import ProfileDetail from './ProfileDetail';
-import EditProfileForm from './EditProfileForm';
+// import EditProfileForm from './EditProfileForm';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import * as a from './../actions';
+// import * as a from './../actions';
 // import { withFirestore } from 'react-redux-firebase';
 // import { withFirestore, isLoaded } from 'react-redux-firebase';
 
@@ -18,15 +18,22 @@ class ProfileControl extends React.Component {
     this.state = {
       masterProfileList: [], //??
       selectedProfile: null,
-      editing: false
+      // editing: false
     };
   }
 
 
   render(){
+    let currentlyVisibleState = null;
+    let buttonText = null;
+
+    currentlyVisibleState = <ProfileList profileList={this.props.masterProfileList} onProfileSelection={this.handleChangingSelectedProfile} />;
+    buttonText = "Add Profile";
+
 
     return (
       <React.Fragment>
+        {currentlyVisibleState}
       </React.Fragment>
     )
   }

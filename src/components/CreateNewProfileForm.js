@@ -14,9 +14,9 @@ function NewProfileForm(props) {
 
   return (
     <React.Fragment>
-      <ReusableForm
+      {/* <ReusableForm
       formSubmissionHandler = {handleNewProfileFormSubmission}
-      buttonText = "Create Profile!" />
+      buttonText = "Create Profile!" /> */}
     </React.Fragment>
   );
 }

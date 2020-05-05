@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import ReusableForm from './ReusableForm';
 
 function NewProfileForm(props) {
   function handleNewProfileFormSubmission(event) {
@@ -16,9 +17,9 @@ function NewProfileForm(props) {
 
   return (
     <React.Fragment>
-      {/* <ReusableForm
+      <ReusableForm
       formSubmissionHandler = {handleNewProfileFormSubmission}
-      buttonText = "Create Profile!" /> */}
+      buttonText = "Create Profile!" />
     </React.Fragment>
   );
 }

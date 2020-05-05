@@ -25,7 +25,7 @@ function EditProfileForm(props) {
   );
 }
 
-EditProfileForm.propTypesj = {
+EditProfileForm.propTypes = {
   onEditProfile: PropTypes.func
 }
 

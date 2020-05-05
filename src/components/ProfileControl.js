@@ -28,6 +28,7 @@ class ProfileControl extends React.Component {
 
   handleAddingNewProfileToList = (newProfile) => {
     const { dispatch } = this.props;
+    const { id, name, bio, projects, skills } = newProfile;
     const action = a.addProfile(newProfile);
     dispatch(action);
     const action2 = a.toggleForm();

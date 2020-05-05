@@ -22,6 +22,7 @@ Profile.propTypes = {
   bio: PropTypes.string.isRequired,
   projects: PropTypes.string,
   skills: PropTypes.string,
+  id: PropTypes.string,
   whenProfileClicked: PropTypes.func
 };
 

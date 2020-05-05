@@ -1,5 +1,5 @@
 import React from "react";
-import CreateNewProfileForm from './CreateNewProfileForm';
+import NewProfileForm from './NewProfileForm';
 import ProfileList from './ProfileList';
 import ProfileDetail from './ProfileDetail';
 // import EditProfileForm from './EditProfileForm';

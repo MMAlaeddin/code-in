@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Button from 'react-bootstrap/Button';
+
 
 function ProfileDetail(props) {
   const { profile, onClickingDelete } = props;
@@ -14,6 +16,8 @@ function ProfileDetail(props) {
       <p><strong>${profile.skills}</strong></p>
       <p>Projects:</p>
       <p><strong>{profile.projects}</strong></p>
+      <Button onClick={()=> onClickingDelete(profile.id)} variant="info">Delete Profile</Button>
+      <Button onClick={ props.onClickingEdit }>Update Profile</Button>
     </React.Fragment>
   )
 }

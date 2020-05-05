@@ -12,7 +12,9 @@ function ProfileList(props) {
           return <Profile
           whenProfileClicked = {props.onProfileSelection}
           name = {profile.name}
-          bio = {profile.bio} />
+          bio = {profile.bio} 
+          key={profile.id}
+          id={profile.id} />
         })}
       </Card>
     </React.Fragment>

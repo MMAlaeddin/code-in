@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function NewProfileForm(props) {
   function handleNewProfileFormSubmission(event) {
@@ -8,7 +9,8 @@ function NewProfileForm(props) {
       name: event.target.name.value,
       bio: event.target.bio.value,
       projects: event.target.projects.value,
-      skills: event.target.skills.value
+      skills: event.target.skills.value,
+      id: v4()
     });
   }
 

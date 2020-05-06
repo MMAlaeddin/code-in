@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
-import { Card, Row, Col } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 function ProfileList(props) {
   return (
     <React.Fragment>
-      <Card>
-        <Row>
-          <Col>
+      <Card style={{ width: '18rem' }}>
+      {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
+      <Card.Body>
+        <Card.Title><h1> {props.name} </h1></Card.Title>
+        <Card.Text>
         {Object.values(props.profileList).map((profile) => {
           return <Profile
           whenProfileClicked = {props.onProfileSelection}
@@ -17,8 +19,9 @@ function ProfileList(props) {
           key={profile.id}
           id={profile.id} />
         })}
-         </Col>
-        </Row>
+
+      </Card.Text>
+      </Card.Body>
       </Card>
     </React.Fragment>
   );

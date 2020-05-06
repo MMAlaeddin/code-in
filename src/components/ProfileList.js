@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
-import { Card } from 'react-bootstrap';
+// import { Card } from 'react-bootstrap';
 
 function ProfileList(props) {
   return (
     <React.Fragment>
-      <Card>
+      {/* <Card> */}
         {Object.values(props.profileList).map((profile) => {
           return <Profile
           whenProfileClicked = {props.onProfileSelection}
@@ -15,7 +15,7 @@ function ProfileList(props) {
           key={profile.id}
           id={profile.id} />
         })}
-      </Card>
+      {/* </Card> */}
     </React.Fragment>
   );
 }

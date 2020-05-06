@@ -1,59 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
-import InputGroup from 'react-bootstrap/InputGroup';
-import { Button, Form, FormControl } from 'react-bootstrap';
-
 
 function ReusableForm(props) {
   return (
 
     <React.Fragment>
-      <form onSubmit = { props.fromSubmissionHandler }>
-       
-          <InputGroup className="mb-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="name">What's your name?</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"/>
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="bio">Tell us about yourself:</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"/>
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="projects">Show us some of your projects!</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"/>
-          </InputGroup>
-
-          <InputGroup className="mb-3">
-          <InputGroup.Prepend>
-            <InputGroup.Text id="skills">What kind of skills do you flex?</InputGroup.Text>
-          </InputGroup.Prepend>
-          <FormControl
-            aria-label="Default"
-            aria-describedby="inputGroup-sizing-default"/>
-          </InputGroup>
-
-          <Button type='submit' variant="info">{props.buttonText}</Button>
+      <form onSubmit={props.formSubmissionHandler}>
+        <input
+        type="text"
+        name="name"
+        placeholder="Whats your name" />
+        <input 
+        type="text"
+        name="bio"
+        placeholder="tell us about yourself" />
+        <input
+        type="text"
+        name="projects"
+        placeholder="Show us some projects!" /> 
+        <input
+        type="text"
+        name="skills"
+        placeholder="Tell us your skill set" />
+        <button type='submit'>{props.buttonText}</button>
       </form>
     </React.Fragment>
-  )
+  );
 }
 
 ReusableForm.propTypes = {
-  fromSubmissionHandler: PropTypes.func,
+  formSubmissionHandler: PropTypes.func,
   buttonText: PropTypes.string
 };
 

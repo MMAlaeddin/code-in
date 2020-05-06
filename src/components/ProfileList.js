@@ -2,8 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import Profile from "./Profile";
 import { Card } from 'react-bootstrap';
+import { useSelector } from 'react-redux'
+import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
 
 function ProfileList(props) {
+  useFirestoreConnect([
+    { collection: 'profiles' }
+  ]);
+  const profiles = useSelector(state => state.firestore.ordered.profiles);
+
+  if (isLoaded(profiles)) {
   return (
     <React.Fragment>
       <Card style={{ width: '18rem' }}>
@@ -11,7 +19,7 @@ function ProfileList(props) {
       <Card.Body>
         <Card.Title><h1> {props.name} </h1></Card.Title>
         <Card.Text>
-        {Object.values(props.profileList).map((profile) => {
+        {profiles.map((profile) => {
           return <Profile
           whenProfileClicked = {props.onProfileSelection}
           name = {profile.name}
@@ -25,10 +33,19 @@ function ProfileList(props) {
       </Card>
     </React.Fragment>
   );
+} else {
+  return (
+    <React.Fragment>
+      <h3>Loading...</h3>
+    </React.Fragment>
+    )
+  }
 }
 
+
+
 ProfileList.propTypes = {
-  profileList: PropTypes.object,
+  // profileList: PropTypes.object,
   onProfileSelection: PropTypes.func,
 };
 

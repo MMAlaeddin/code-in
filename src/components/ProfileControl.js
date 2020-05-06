@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
 import Button from 'react-bootstrap/Button';
-// import { withFirestore } from 'react-redux-firebase';
+import { withFirestore } from 'react-redux-firebase';
 // import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class ProfileControl extends React.Component {
@@ -26,17 +26,23 @@ class ProfileControl extends React.Component {
     this.setState({selectedProfile: null});
   }
 
-  handleAddingNewProfileToList = (newProfile) => {
+  handleAddingNewProfileToList = () => {
     const { dispatch } = this.props;
-    const action = a.addProfile(newProfile);
-    dispatch(action);
     const action2 = a.toggleForm();
     dispatch(action2);
   }
 
   handleChangingSelectedProfile = (id) => {
-    const selectedProfile = this.props.masterProfileList[id]
-      this.setState({selectedProfile: selectedProfile});
+    this.props.firestore.get({collection: 'profiles', doc: id}).then((profile) => {
+      const firestoreProfile = {
+        name: profile.get("name"),
+        bio: profile.get("bio"),
+        projects: profile.get("projects"),
+        skills: profile.get("skills"),
+        id: profile.id
+      }
+      this.setState({selectedProfile: firestoreProfile });
+    });
   }
 
   handleDeletingProfile = (id) => {
@@ -61,8 +67,6 @@ class ProfileControl extends React.Component {
     });
   }
   
-
-
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -111,4 +115,4 @@ const mapStateToProps = state => {
 }
 ProfileControl = connect(mapStateToProps)(ProfileControl);
 
-export default ProfileControl;
+export default ProfileControl;withFirestore()

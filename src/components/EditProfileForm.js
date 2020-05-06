@@ -1,20 +1,24 @@
 import React from 'react';
 import ReusableForm from './ReusableForm';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
+import { useFirestore } from 'react-redux-firebase';
 
 function EditProfileForm(props) {
+
+  const firestore = useFirestore();
   const { profile } = props;
 
   function handleEditProfileFormSubmission(event) {
     event.preventDefault();
-    props.onEditProfile({
+    props.onEditProfile();
+    const propertiesToUpdate = {
       name: event.target.name.value,
       bio: event.target.bio.value,
-      projects:event.target.projects.value,
-      skills: event.target.skills.value,
-      id: v4()
-    });
+      projects: event.target.bio.value,
+      skills: event.target.skills.value
+    }
+    return firestore.update({ collectin: 'profiles', doc: profile.id }, propertiesToUpdate)
   }
   return (
     <React.Fragment>

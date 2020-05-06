@@ -46,21 +46,15 @@ class ProfileControl extends React.Component {
   }
 
   handleDeletingProfile = (id) => {
-      const { dispatch } = this.props;
-      const action = a.deleteProfile(id);
-      dispatch(action);
-      this.setState({selectedProfile: null});
-    
+    this.props.firestore.delete({collection: 'profiles', doc: id});
+    this.setState({selectedProfile: null});
   }
   
   handleEditClick = () => {
     this.setState({editing: true});
   }
 
-  handleEditingProfileInList = (profileToEdit) => {
-    const { dispatch } = this.props;
-    const action = a.addProfile(profileToEdit);
-    dispatch(action);
+  handleEditingProfileInList = () => {
     this.setState({
       editing: false,
       selectedProfile: null

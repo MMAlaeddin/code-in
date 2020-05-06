@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { v4 } from 'uuid';
+// import { v4 } from 'uuid';
 import ReusableForm from './ReusableForm';
+import { useFirestore } from 'react-redux-firebase';
 
 function NewProfileForm(props) {
-  function handleNewProfileFormSubmission(event) {
+
+  const firestore = useFirestore();
+
+  function addProfileToFirestore(event) {
     event.preventDefault();
-    props.onNewProfileCreation({
-      name: event.target.name.value,
-      bio: event.target.bio.value,
-      projects: event.target.projects.value,
-      skills: event.target.skills.value,
-      id: v4()
-    });
+    props.onNewProfileCreation();
+
+    return firestore.collection('profiles').add(
+      {
+        name: event.target.name.value,
+        bio: event.target.bio.value, 
+        projects: event.target.projects.value,
+        skills: event.target.skills.value
+      });
   }
 
   return (
     <React.Fragment>
       <ReusableForm
-      formSubmissionHandler = {handleNewProfileFormSubmission}
+      formSubmissionHandler = {addProfileToFirestore}
       buttonText = "Create Profile!" />
     </React.Fragment>
   );

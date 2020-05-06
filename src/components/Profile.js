@@ -8,9 +8,9 @@ function Profile(props) {
       <h2>{props.name}</h2>
       <h5>{props.bio}</h5>
       <hr/>
-      <h3>Projects: </h3>
+      {/* <h3>Projects: </h3> */}
       <h5><ul>{props.projects}</ul></h5>
-      <h3>Skills: </h3>
+      {/* <h3> Skills: </h3> */}
       <h5><ul>{props.skills}</ul></h5>
       </div>
     </React.Fragment>

@@ -10,12 +10,12 @@ function ProfileDetail(props) {
     <React.Fragment>
       <h3>Name:<strong>{profile.name}</strong></h3>
       <hr/>
-      <p>Bio:</p> 
-      <p><strong>{profile.bio}</strong></p>
-      <p>Skills:</p>
-      <p><strong>${profile.skills}</strong></p>
-      <p>Projects:</p>
-      <p><strong>{profile.projects}</strong></p>
+      <p><strong>Bio:</strong></p> 
+      <p>{profile.bio}</p>
+      <p><strong>Skills:</strong></p>
+      <p>{profile.skills}</p>
+      <p><strong>Projects:</strong></p>
+      <p>profile.projects}</p>
       <Button onClick={()=> onClickingDelete(profile.id)} variant="info">Delete Profile</Button>
       <Button onClick={ props.onClickingEdit }>Update Profile</Button>
     </React.Fragment>

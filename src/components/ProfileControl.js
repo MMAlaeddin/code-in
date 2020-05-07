@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import * as a from './../actions';
 import Button from 'react-bootstrap/Button';
-// import { withFirestore } from 'react-redux-firebase';
 import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class ProfileControl extends React.Component {
@@ -65,6 +64,7 @@ class ProfileControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     const auth = this.props.firebase.auth();
+    
     if (!isLoaded(auth)) {
       return (
         <React.Fragment>

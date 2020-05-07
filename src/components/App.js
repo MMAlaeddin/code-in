@@ -18,6 +18,7 @@ function App(){
           <ProfileControl />
         </Route>
       </Switch>
+      <Footer />
     </Router>
   );
 }

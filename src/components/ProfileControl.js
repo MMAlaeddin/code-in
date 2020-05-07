@@ -80,7 +80,8 @@ class ProfileControl extends React.Component {
       )
     } 
     if ((isLoaded(auth)) && (auth.currentUser != null)) {
-    } else if (this.state.editing) {
+      
+    // } else if (this.state.editing) {
       currentlyVisibleState = <EditProfileForm 
         profile = {this.state.selectedProfile}
         onEditProfile = {this.handleEditingProfileInList} />
@@ -101,7 +102,7 @@ class ProfileControl extends React.Component {
         onProfileSelection={this.handleChangingSelectedProfile} />
       buttonText = "Add a Profile";
     }
-
+  
 
     return (
       <React.Fragment> 

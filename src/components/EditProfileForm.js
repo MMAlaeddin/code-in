@@ -18,12 +18,12 @@ function EditProfileForm(props) {
       projects: event.target.bio.value,
       skills: event.target.skills.value
     }
-    return firestore.update({ collectin: 'profiles', doc: profile.id }, propertiesToUpdate)
+    return firestore.update({ collection: 'profiles', doc: profile.id }, propertiesToUpdate)
   }
   return (
     <React.Fragment>
       <ReusableForm
-      formSubmissionHandler={ handleEditProfileFormSubmission }
+      formSubmissionHandler = { handleEditProfileFormSubmission }
       buttonText="Update Profile" />
     </React.Fragment>
   );

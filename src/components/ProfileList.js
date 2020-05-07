@@ -27,7 +27,6 @@ function ProfileList(props) {
           key={profile.id}
           id={profile.id} />
         })}
-
       </Card.Text>
       </Card.Body>
       </Card>

@@ -12,9 +12,9 @@ function Profile(props) {
       <h5><ul>{props.projects}</ul></h5>
       {/* <h3> Skills: </h3> */}
       <h5><ul>{props.skills}</ul></h5>
-      <div className="App">
+      {/* <div className="App">
       <input type="file" accept="image/*" multiple = "false" />
-    </div>
+    </div> */}
       </div>
     </React.Fragment>
   );

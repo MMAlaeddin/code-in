@@ -124,4 +124,4 @@ const mapStateToProps = state => {
 }
 ProfileControl = connect(mapStateToProps)(ProfileControl);
 
-export default ProfileControl;withFirestore()
+export default withFirestore(ProfileControl);

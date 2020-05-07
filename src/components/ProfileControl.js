@@ -80,27 +80,28 @@ class ProfileControl extends React.Component {
       )
     } 
     if ((isLoaded(auth)) && (auth.currentUser != null)) {
-      
-    // } else if (this.state.editing) {
-      currentlyVisibleState = <EditProfileForm 
-        profile = {this.state.selectedProfile}
-        onEditProfile = {this.handleEditingProfileInList} />
-      buttonText = "Return to Profiles";
-    } else if (this.state.selectedProfile != null) {
-      currentlyVisibleState = <ProfileDetail 
-        profile = {this.state.selectedProfile} 
-        onClickingDelete = {this.handleDeletingProfile}
-        onClickingEdit = {this.handleEditClick} />
-      buttonText = "Return to Profiles";
-    } else if (this.props.formVisibleOnPage) {
-      currentlyVisibleState = <NewProfileForm 
-        onNewProfileCreation={this.handleAddingNewProfileToList}/>
-      buttonText = "Return to Profiles";
-    } else {
-      currentlyVisibleState = <ProfileList 
-        profileList={this.props.masterProfileList} 
-        onProfileSelection={this.handleChangingSelectedProfile} />
-      buttonText = "Add a Profile";
+    
+      if (this.state.editing) {
+        currentlyVisibleState = <EditProfileForm 
+          profile = {this.state.selectedProfile}
+          onEditProfile = {this.handleEditingProfileInList} />
+        buttonText = "Return to Profiles";
+      } else if (this.state.selectedProfile != null) {
+        currentlyVisibleState = <ProfileDetail 
+          profile = {this.state.selectedProfile} 
+          onClickingDelete = {this.handleDeletingProfile}
+          onClickingEdit = {this.handleEditClick} />
+        buttonText = "Return to Profiles";
+      } else if (this.props.formVisibleOnPage) {
+        currentlyVisibleState = <NewProfileForm 
+          onNewProfileCreation={this.handleAddingNewProfileToList}/>
+        buttonText = "Return to Profiles";
+      } else {
+        currentlyVisibleState = <ProfileList 
+          profileList={this.props.masterProfileList} 
+          onProfileSelection={this.handleChangingSelectedProfile} />
+        buttonText = "Add a Profile";
+      }
     }
   
 

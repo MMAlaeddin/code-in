@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import * as a from './../actions';
 import Button from 'react-bootstrap/Button';
 import { withFirestore } from 'react-redux-firebase';
-// import { withFirestore, isLoaded } from 'react-redux-firebase';
+import { withFirestore, isLoaded } from 'react-redux-firebase';
 
 class ProfileControl extends React.Component {
   constructor(props) {
@@ -64,8 +64,23 @@ class ProfileControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-
-    if (this.state.editing) {
+    const auth = this.props.firebase.auth();
+    if (!isLoaded(auth)) {
+      return (
+        <React.Fragment>
+          <h1>Loading...</h1>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      return (
+        <React.Fragment>
+          <h1>You must be signed in to access the queue.</h1>
+        </React.Fragment>
+      )
+    } 
+    if ((isLoaded(auth)) && (auth.currentUser != null)) {
+    } else if (this.state.editing) {
       currentlyVisibleState = <EditProfileForm 
         profile = {this.state.selectedProfile}
         onEditProfile = {this.handleEditingProfileInList} />
